@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div {
+            margin-bottom: 10px;
+        }
+        .combo-row {
+            font-size: 24px;
+        }
+        .actions-row {
+            margin-top: 40px;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="combo-row">
+        Combination: <div id="combination" className="combination">Medal | Medal | Medal | Medal</div>
+    </div>
+    <hr />
+    <div>
+        Correct <input name="correct" />
+        Incorrect <input name="incorrect" />
+        Unknown <input name="unknown" />
+    </div>
+    <hr />
+    <div class="actions-row">
+        <button name="submit" onclick="getNextCombination()">Get Next Combination</button>
+        <button name="restart" onclick="reset()">Restart</button>
+    </div>
+</body>
+<script src="js.js"></script>
+</html>
