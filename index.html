@@ -33,9 +33,9 @@
     </div>
     <hr />
     <div class="input-row">
-        Correct: <input name="correct" onfocus="highlight('correct')" />
-        Incorrect: <input name="incorrect" onfocus="highlight('incorrect')" />
-        Unknown: <input name="unknown" onfocus="highlight('unknown')" />
+        Correct: <input name="correct" onfocus="highlight('correct')" maxlength="1" />
+        Incorrect: <input name="incorrect" onfocus="highlight('incorrect')" maxlength="1" />
+        Unknown: <input name="unknown" onfocus="highlight('unknown')" maxlength="1" />
     </div>
     <hr />
     <div>
@@ -45,6 +45,10 @@
     <div class="actions-row">
         <button name="submit" onclick="getNextCombination()">Get Next Combination</button>
         <button name="restart" onclick="reset()">Restart</button>
+        <button name="restart" onclick="clearHistory()">Clear History</button>
+    </div>
+    <div class="history" id="history">
+
     </div>
 </body>
 <script src="js.js"></script>

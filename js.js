@@ -59,6 +59,20 @@ let combination = [MEDAL, MEDAL, MEDAL, MEDAL];
 const renderCombo = () => {
     document.getElementById('combination').innerHTML = combination.join(' | ');
 }
+document.getElementsByName('correct')[0].addEventListener('keyup', (event) => autoTab(event, 'incorrect'));
+document.getElementsByName('incorrect')[0].addEventListener('keyup', (event) => autoTab(event, 'unknown'));
+
+const autoTab = (e, nextInput) => {
+    console.log(e.key);
+
+    if (!isNaN(e.key)) {
+        highlight(nextInput);
+    }
+}
+
+const clearHistory = () => {
+    document.getElementById('history').innerHTML = '';
+}
 
 const reset = () => {
     numMedal = 0;
@@ -152,6 +166,9 @@ const getNextCombination = () => {
     }
 
     const count = document.getElementById('guess-count');
+    const history = document.getElementById('history');
+    history.innerHTML = `<div>Guess ${count.innerHTML} [${correct}, ${incorrect}, ${unknown}]: ${combination.join(' | ')}</div>` + history.innerHTML;
+
     count.innerHTML = parseInt(count.innerHTML) + 1;
 
     errorElem.innerHTML = '';
