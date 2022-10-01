@@ -13,6 +13,12 @@ const basePossible = [
     MEDAL, SCROLL, WINE, FOOD ,
 ];
 
+const highlight = (input) => {
+    const field = document.getElementsByName(input)[0];
+    field.focus();
+    field.select();
+}
+
 const isSame = (arr1, arr2) => {
     return arr1[0] === arr2[0]
     && arr1[1] === arr2[1]
