@@ -70,6 +70,15 @@ const reset = () => {
     allPossible = generateAllPossibleGuesses(4);
     tries = 0;
 
+    const errorElem = document.getElementById('error-text');
+    const count = document.getElementById('guess-count');
+    count.innerHTML = '1';
+    errorElem.innerHTML = '';
+
+    document.getElementsByName("correct")[0].value = 0;
+    document.getElementsByName("incorrect")[0].value = 0;
+    document.getElementsByName("unknown")[0].value = 0;
+
     renderCombo();
 }
 
@@ -123,9 +132,10 @@ const getNextCombination = () => {
     const correct = parseInt(document.getElementsByName("correct")[0].value);
     const incorrect = parseInt(document.getElementsByName("incorrect")[0].value);
     const unknown = parseInt(document.getElementsByName("unknown")[0].value);
+    const errorElem = document.getElementById('error-text');
 
     if (isNaN(correct) || isNaN(incorrect) || isNaN(unknown) || correct + incorrect + unknown !== 4) {
-        console.log('fail, invalid input');
+        errorElem.innerHTML = 'ERROR! Invalid combo!';
         return;
     }
 
@@ -137,8 +147,14 @@ const getNextCombination = () => {
     });
 
     if (allPossible.length === 0) {
-        console.log('fail, invalid combination');
+        errorElem.innerHTML = 'ERROR! Ran out of combos!';
+        return;
     }
+
+    const count = document.getElementById('guess-count');
+    count.innerHTML = parseInt(count.innerHTML) + 1;
+
+    errorElem.innerHTML = '';
 
     combination = allPossible[0];
     
