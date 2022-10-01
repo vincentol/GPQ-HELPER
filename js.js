@@ -93,6 +93,9 @@ const reset = () => {
     document.getElementsByName("incorrect")[0].value = 0;
     document.getElementsByName("unknown")[0].value = 0;
 
+    const history = document.getElementById('history');
+    history.innerHTML = `<div>-- RESTART --</div>` + history.innerHTML;
+
     renderCombo();
 }
 
