@@ -25,6 +25,15 @@
             font-weight: bold;
             color: red;
         }
+        #submit-button {
+            background-color: #bbdefb;
+            height: 40px;
+            border-radius: 5px;
+        }
+        .secondary-button {
+            background-color: #e3f2fd;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -43,9 +52,9 @@
         <div class="error-text" id="error-text"></div>
     </div>
     <div class="actions-row">
-        <button name="submit" onclick="getNextCombination()">Get Next Combination</button>
-        <button name="restart" onclick="reset()">Restart</button>
-        <button name="restart" onclick="clearHistory()">Clear History</button>
+        <button name="restart" onclick="reset()" class="secondary-button">Restart</button>
+        <button name="clear" onclick="clearHistory()" class="secondary-button">Clear History</button>
+        <button name="submit" onclick="getNextCombination()" id="submit-button">Get Next Combination</button>
     </div>
     <div class="history" id="history">
 
